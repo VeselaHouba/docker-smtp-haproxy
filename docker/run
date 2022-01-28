@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+if [ ! -f ${CERTFILE} ] || [ ! -f ${KEYFILE} ]; then
+  echo "Error reading certificate/key files, please provide certificates"
+  exit 1
+fi
+cat "${CERTFILE}" "${KEYFILE}" > /etc/haproxy/cert_with_key.pem
+envsubst < /root/haproxy_template.cfg > /etc/haproxy/haproxy.cfg
+haproxy -f /etc/haproxy
