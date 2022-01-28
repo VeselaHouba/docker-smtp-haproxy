@@ -10,6 +10,7 @@ RUN chmod 755 /root/run
 
 ENV \
   CERTFILE=/opt/cert.pem \
+  CHAINFILE=/opt/chain.pem \
   KEYFILE=/opt/cert.key \
   BACKEND_HOST=localhost \
   BACKEND_PORT=25
